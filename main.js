@@ -1,17 +1,17 @@
 canvas = document.getElementById("myCanvas");
 ctx = canvas.getContext("2d");
 
-car1_img = "https://o.remove.bg/downloads/b2db7f35-0ac2-4dab-bc18-ec529a2c9ac8/79-799626_yellow-top-car-car-top-view-png-removebg-preview.png"
+car1_img = "car1.png"
 car1_width = 100;
 car1_height = 90;
-car1_y = 10;
+car1_x = 10;
 car1_y = 10;
 
-car2_img = "https://o.remove.bg/downloads/e46e7648-560d-4343-ba8f-7fc38ab11752/kisspng-car-laferrari-auto-racing-clip-art-truck-top-view-5a870e5f67c862.4409556815188004794251-removebg-preview.png"
+car2_img = "car2.png"
 car2_width = 100;
 car2_height = 90;
-car2_y = 10;
-car2_y = 100;
+car2_x = 10;
+car2_y = 310;
 
 background_img = "https://thumbs.dreamstime.com/b/asphalt-road-top-view-wallpapers-backgrounds-168458075.jpg";
 
@@ -54,52 +54,154 @@ function my_keydown(e)
     keyPressed = e.keyCode;
     console.log(keyPressed);
     
-    if (keyPressed = '38')
+    if (keyPressed == '38')
     {
         upCar1();
         console.log("up arrow");
     }
 
-    if (keyPressed = '40')
+    if (keyPressed == '40')
     {
         downCar1();
         console.log("down arrow");
     }
 
-    if (keyPressed = '37')
+    if (keyPressed == '37')
     {
         leftCar1();
         console.log("left arrow");
     }
     
-    if (keyPressed = '39')
+    if (keyPressed == '39')
     {
         rightCar1();
         console.log("right arrow");
     }
 
-    if (keyPressed = '65')
+    if (keyPressed == '65')
     {
        leftCar2();
         console.log("left key");
     }
 
-    if (keyPressed = '83')
+    if (keyPressed == '83')
     {
        downCar2();
         console.log("down key");
     }
 
-    if (keyPressed = '68')
+    if (keyPressed == '68')
     {
-       UpCar2();
+       upCar2();
         console.log("up key");
     }
 
-    if (keyPressed = '70')
+    if (keyPressed == '70')
     {
        rightCar2();
         console.log("right key");
     }
 
+ }
+
+ function upCar1()
+ {
+   if (car1_y >= 0)
+   {
+     car1_y = car1_y - 10;
+     console.log("when up arrow is pressed x = " + car1_x + " and y = " + car1_y);
+     uploadBackground();
+     uploadCar1();
+   }
+ }
+
+ function downCar1()
+ {
+   if (car1_y <= 500)
+   {
+    car1_y = car1_y + 10;
+     console.log("when down arrow is pressed x = " + car1_x + " and y = " + car1_y);
+     uploadBackground();
+     uploadCar1();
+   }
+ }
+
+ function leftCar1()
+ {
+   if (car1_x >= 0)
+   {
+    car1_x = car1_x - 10;
+     console.log("when left arrow is pressed x = " + car1_x + " and y = " + car1_y);
+     uploadBackground();
+     uploadCar1();
+   }
+ }
+
+ function rightCar1()
+ {
+   if (car1_x <= 800)
+   {
+    car1_x = car1_x + 10;
+     console.log("when right arrow is pressed x = " + car1_x + " and y = " + car1_y);
+     uploadBackground();
+     uploadCar1();
+   }
+ }
+
+
+
+ function upCar2()
+ {
+   if (car2_y >= 0)
+   {
+     car2_y = car2_y - 10;
+     console.log("when up arrow is pressed x = " + car2_x + " and y = " + car2_y);
+     uploadBackground();
+     uploadCar2();
+   }
+ }
+
+ function downCar2()
+ {
+   if (car2_y <= 500)
+   {
+    car2_y = car2_y + 10;
+     console.log("when down arrow is pressed x = " + car2_x + " and y = " + car2_y);
+     uploadBackground();
+     uploadCar2();
+   }
+ }
+
+ function leftCar2()
+ {
+   if (car2_x >= 0)
+   {
+    car2_x = car2_x - 10;
+     console.log("when left arrow is pressed x = " + car2_x + " and y = " + car2_y);
+     uploadBackground();
+     uploadCar2();
+   }
+ }
+
+ function rightCar2()
+ {
+   if (car2_x <= 800)
+   {
+    car2_x = car2_x + 10;
+     console.log("when right arrow is pressed x = " + car2_x + " and y = " + car2_y);
+     uploadBackground();
+     uploadCar2();
+   }
+ }
+
+ if (car1_x > 750)
+ {
+   console.log ("Car 1 wins");
+   document.getElementById("game_stats").innerHTML = "Car 1 Wins!!";
+ }
+
+ if (car2_x > 750)
+ {
+   console.log ("Car 2 wins");
+   document.getElementById("game_stats").innerHTML = "Car 2 Wins!!";
  }
